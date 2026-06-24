@@ -142,6 +142,7 @@ Only one serial_text device is allowed (one spare UART). UART0 is reserved for U
 | ESP32-C6 | GPIO 4 | GPIO 5 |
 | ESP32-S3 | GPIO 19 | GPIO 20 |
 | ESP32-C3 | GPIO 4 | GPIO 5 |
+| ESP32-C6-GEEK | GPIO 12 | GPIO 13 |
 
 Pins are fixed per chip - no configuration needed. Connect your serial device's TX to the RX pin and vice versa. Don't forget a common ground.
 

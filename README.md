@@ -2,7 +2,7 @@
 
 An AI agent that lives on a $5 microcontroller and controls real hardware.
 
-**Supported chips:** ESP32-C6, ESP32-S3, ESP32-C3 (4 MB flash required)
+**Supported chips:** ESP32-C6, ESP32-S3, ESP32-C3, ESP32-C6-GEEK (4 MB flash required)
 
 **[Flash it to your ESP32 from the browser](https://wireclaw.io/flash.html)** - no tools to install, configure from your phone. The web flasher auto-detects your chip.
 
@@ -248,11 +248,11 @@ The rule loop and the AI loop share the same `loop()` function but serve differe
 
 ## Hardware
 
-- **Supported:** ESP32-C6, ESP32-S3, ESP32-C3
+- **Supported:** ESP32-C6, ESP32-S3, ESP32-C3, ESP32-C6-GEEK
 - **Platform:** [pioarduino](https://github.com/pioarduino/platform-espressif32) via PlatformIO
 - **Requirements:** WiFi network, [OpenRouter](https://openrouter.ai/) API key or local LLM server
 
-Onboard RGB LED control works out of the box on Espressif DevKit boards with WS2812B (C3, C6, S3). Boards without an onboard RGB LED can skip the `led_set` tool - everything else works the same.
+Onboard RGB LED control works out of the box on Espressif DevKit boards with WS2812B (C3, C6, S3). Boards without an onboard RGB LED (ESP32-C6-GEEK) can skip the `led_set` tool - everything else works the same.
 
 The dev board alone is enough to get started - chip temperature sensor, clock sensors, and RGB LED work out of the box. Add external sensors and actuators as needed.
 
@@ -336,13 +336,14 @@ See [docs/RULE-CHAINING.md](docs/RULE-CHAINING.md#appendix-a-model-comparison) f
 
 #### 3. Build and Flash
 
-The default target is ESP32-C6. To build for a different chip, pass `-e <target>`:
+The default target is ESP32-C6-GEEK. To build for a different chip, pass `-e <target>`:
 
 | Target | Board | Command |
 |--------|-------|---------|
-| ESP32-C6 | esp32-c6-devkitc-1 | `pio run` (default) |
+| ESP32-C6 | esp32-c6-devkitc-1 | `pio run -e esp32-c6` ) |
 | ESP32-S3 | esp32-s3-devkitc-1 | `pio run -e esp32-s3` |
 | ESP32-C3 | esp32-c3-devkitm-1 | `pio run -e esp32-c3` |
+| ESP32-C6-GEEK | esp32-c6-devkitc-1 | `pio run` (default) |
 
 ```
 pio run -t uploadfs    # upload config + system prompt to filesystem
